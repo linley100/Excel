@@ -4,7 +4,7 @@
         <div class="greeting">Hello {{name}}{{exclamationMarks}}</div>
         <button @click="decrement">-</button>
         <button @click="increment">+</button>
-        <button @click="imprim">+</button>
+        <button @click="imprim">Imprimir</button>
     </div>
 </template>
 
