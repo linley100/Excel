@@ -1,6 +1,6 @@
 import * as XLSX from "xlsx";
 
-export function imprimir(mes, dias) {
+export function imprimirUsuario(mes: any[], dias: any[][][]) {
     // este el libro de trabajo
     let workbook = XLSX.utils.book_new();
     
@@ -375,7 +375,7 @@ export function imprimir(mes, dias) {
     XLSX.writeFile(workbook, 'UsuariosDeLaSalaDeEstudio.xls');
 };
 
-export function imprimirSalas(mes, dias) {
+export function imprimirSalas(mes: any[], dias: any[][][]) {
     // este el libro de trabajo
     let workbook = XLSX.utils.book_new();
     
@@ -748,4 +748,68 @@ export function imprimirSalas(mes, dias) {
     workbook.Sheets["Hemeroteca"] = hemeroteca;
 
     XLSX.writeFile(workbook, 'SalasDeEstudio.xls');
+};
+
+export function imprimir(sanciones: any[][]) {
+    // Este es el libro de trabajo
+    let workbook = XLSX.utils.book_new();
+    
+    //Auxiliares y contadores
+    let aux=0, i=0, j=0, cont=0, contD=0, totalD=0;
+
+    //Celdas de la hoja de calculo
+    let ws_data = [];
+
+	//Cantidad de sancionados y sancionados
+    let x = sanciones.length;
+    let sancion = sanciones;
+    /*let sancion = [
+    	['Juan','Perez','28987654','01/02/19','01/03/19'],
+    	['Juan1','Perez1','28987655','02/02/19','02/03/19'],
+    	['Juan2','Perez2','28987656','03/02/19','03/03/19'],
+    	['Juan3','Perez3','28987657','04/02/19','04/03/19']
+    ];*/
+
+    //Inicializar las celdas a usar
+    for (i = 0; i < (8 + x); i++) { 
+        ws_data[i] = ['','','','','','','','','','','','','','',''];
+    }
+
+    //Estas es la hoja de calculo
+    let sancionados = XLSX.utils.aoa_to_sheet(ws_data);
+
+    //Array con palabras usadas
+    let text = [
+        'USUARIOS SANCIONADOS',
+        'Nombre','Apellido','C.I.','Inicio','Fin'
+    ];
+
+
+    //Llenar la hoja de excel de los sancionados
+    sancionados['B' + 6] = { t:'s', v: text[0]};
+    sancionados['B' + 7] = { t:'s', v: text[1]};
+    sancionados['C' + 7] = { t:'s', v: text[2]};
+    sancionados['D' + 7] = { t:'s', v: text[3]};
+    sancionados['E' + 7] = { t:'s', v: text[4]};
+    sancionados['F' + 7] = { t:'s', v: text[5]};
+    for (i = 0; i < x; i++) { 
+        
+        //Escribir
+        sancionados['B' + (8 + i)] = { t:'s', v: sancion[i][0]};
+        sancionados['C' + (8 + i)] = { t:'s', v: sancion[i][1]};
+        sancionados['D' + (8 + i)] = { t:'s', v: sancion[i][2]};
+        sancionados['E' + (8 + i)] = { t:'s', v: sancion[i][3]};
+        sancionados['F' + (8 + i)] = { t:'s', v: sancion[i][4]};
+
+    }
+
+    //combinar celdas
+    //Variable para la para combinar las celdas
+    let rango = [{s: { c: 1, r: 5 }, e: { c: 5, r: 5 }}];
+    sancionados['!merges'] = rango;
+
+    workbook.SheetNames.push("Sancionados");
+    workbook.Sheets["Sancionados"] = sancionados;
+
+    XLSX.writeFile(workbook, 'UsuariosDeLaSalaDeEstudio.xls');
 };
