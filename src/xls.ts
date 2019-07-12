@@ -1,6 +1,6 @@
 import * as XLSX from "xlsx";
 
-export function imprimirUsuario(mes: any[], dias: any[][][]) {
+export function imprimirUsuario(mes: any[], diasT1: any[][][], diasT2: any[][][], diasT3: any[][][]) {
     // este el libro de trabajo
     let workbook = XLSX.utils.book_new();
     
@@ -12,7 +12,9 @@ export function imprimirUsuario(mes: any[], dias: any[][][]) {
     //Variable que guarda la cantidad de meses
     let x = mes.length;
     //Variable tipo arrays of arrrays of arrays de int, contiene los dias de un turno de un mes
-    let cantDias =  dias;
+    let cantDiasT1 = diasT1;
+    let cantDiasT2 = diasT2;
+    let cantDiasT3 = diasT3;
     /*let cantDias = [
         [
             [100,200,300,400,500,
@@ -57,9 +59,9 @@ export function imprimirUsuario(mes: any[], dias: any[][][]) {
     ];*/
 
     //Variables de prueba, dias por mes
-    let a = cantDias[0][0];
-    let b = cantDias[0][0];
-    let c = cantDias[0][0];
+    let a = cantDiasT1[0][0];
+    let b = cantDiasT2[0][0];
+    let c = cantDiasT3[0][0];
 
     //Celdas de la hoja de calculo
     let ws_data = [];
@@ -149,7 +151,7 @@ export function imprimirUsuario(mes: any[], dias: any[][][]) {
                 }else{
                     contD=0;
                 }
-                a = cantDias[i][contD];
+                a = cantDiasT1[i][contD];
             }
             
         }
@@ -244,7 +246,7 @@ export function imprimirUsuario(mes: any[], dias: any[][][]) {
                 }else{
                     contD=0;
                 }
-                b = cantDias[i][contD];
+                b = cantDiasT2[i][contD];
             }
 
         }
@@ -337,7 +339,7 @@ export function imprimirUsuario(mes: any[], dias: any[][][]) {
                 }else{
                     contD=0;
                 }
-                c = cantDias[i][contD];
+                c = cantDiasT3[i][contD];
             }
 
         }
@@ -375,7 +377,7 @@ export function imprimirUsuario(mes: any[], dias: any[][][]) {
     XLSX.writeFile(workbook, 'UsuariosDeLaSalaDeEstudio.xls');
 };
 
-export function imprimirSalas(mes: any[], dias: any[][][]) {
+export function imprimirSalas(mes: any[], diasT1: any[][][], diasT2: any[][][], diasT3: any[][][]) {
     // este el libro de trabajo
     let workbook = XLSX.utils.book_new();
     
@@ -387,7 +389,9 @@ export function imprimirSalas(mes: any[], dias: any[][][]) {
     //Variable que guarda la cantidad de meses
     let x = mes.length;
     //Variable tipo arrays of arrrays of arrays de int, contiene los dias de un turno de un mes
-    let cantDias =  dias;
+    let cantDiasT1 =  diasT1;
+    let cantDiasT2 =  diasT2;
+    let cantDiasT3 =  diasT3;
     /*let cantDias = [
         [
             [100,200,300,400,500,
@@ -432,9 +436,9 @@ export function imprimirSalas(mes: any[], dias: any[][][]) {
     ];*/
 
     //Variables de prueba, dias por mes
-    let a = cantDias[0][0];
-    let b = cantDias[0][0];
-    let c = cantDias[0][0];
+    let a = cantDiasT1[0][0];
+    let b = cantDiasT2[0][0];
+    let c = cantDiasT3[0][0];
 
     //Celdas de la hoja de calculo
     let ws_data = [];
@@ -524,7 +528,7 @@ export function imprimirSalas(mes: any[], dias: any[][][]) {
                 }else{
                     contD=0;
                 }
-                a = cantDias[i][contD];
+                a = cantDiasT1[i][contD];
             }
             
         }
@@ -619,7 +623,7 @@ export function imprimirSalas(mes: any[], dias: any[][][]) {
                 }else{
                     contD=0;
                 }
-                b = cantDias[i][contD];
+                b = cantDiasT2[i][contD];
             }
 
         }
@@ -712,7 +716,7 @@ export function imprimirSalas(mes: any[], dias: any[][][]) {
                 }else{
                     contD=0;
                 }
-                c = cantDias[i][contD];
+                c = cantDiasT3[i][contD];
             }
 
         }
