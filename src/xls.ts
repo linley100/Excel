@@ -62,11 +62,6 @@ export function imprimirUsuarios(mes: any[], diasT1: any[][][], diasT2: any[][][
         ]
     ];*/
 
-    //Variables auxiliares, dias por turno ( Turno x Dia )
-    let a = cantDiasT1[0][0]; //Piso 1
-    let b = cantDiasT2[0][0]; //Piso 2
-    let c = cantDiasT3[0][0]; //Hemeroteca
-
     //Celdas de la hoja de calculo
     let ws_data = [];
 
@@ -100,6 +95,8 @@ export function imprimirUsuarios(mes: any[], diasT1: any[][][], diasT2: any[][][
     //Llenar la hoja de excel del piso 1
     piso1['B' + 6] = { t:'s', v: text[0]}; //Escribir titulo
     for (i = 0; i < x; i++) { 
+	    //Variables auxiliares, dias por turno ( Turno x Dia )
+	    let a = cantDiasT1[i][0]; //Piso 1
         totalD = 0;
         aux = 7
 
@@ -201,6 +198,8 @@ export function imprimirUsuarios(mes: any[], diasT1: any[][][], diasT2: any[][][
     rango = [{s: { c: 1, r: 5 }, e: { c: 14, r: 5 }}]; 
     piso3['B' + 6] = { t:'s', v: text[0]};
     for (i = 0; i < x; i++) { 
+    	//Variables auxiliares, dias por turno ( Turno x Dia )
+	    let b = cantDiasT2[i][0]; //Piso 3
         totalD = 0;
         aux = 7
 
@@ -300,6 +299,8 @@ export function imprimirUsuarios(mes: any[], diasT1: any[][][], diasT2: any[][][
     rango = [{s: { c: 1, r: 5 }, e: { c: 14, r: 5 }}]; 
     hemeroteca['B' + 6] = { t:'s', v: text[0]};
     for (i = 0; i < x; i++) { 
+	    //Variables auxiliares, dias por turno ( Turno x Dia )
+	    let c = cantDiasT3[i][0]; //Hemeroteca
         totalD = 0;
         aux = 7
 
@@ -456,11 +457,6 @@ export function imprimirSalas(mes: any[], diasT1: any[][][], diasT2: any[][][], 
         ]
     ];*/
 
-    //Variables de prueba, dias por mes
-    let a = cantDiasT1[0][0];
-    let b = cantDiasT2[0][0];
-    let c = cantDiasT3[0][0];
-
     //Celdas de la hoja de calculo
     let ws_data = [];
 
@@ -494,6 +490,8 @@ export function imprimirSalas(mes: any[], diasT1: any[][][], diasT2: any[][][], 
     //Llenar la hoja de excel del piso 1
     piso1['B' + 6] = { t:'s', v: text[0]}; //Escribir titulo
     for (i = 0; i < x; i++) { 
+	    //Variables auxiliares, dias por turno ( Turno x Dia )
+	    let a = cantDiasT1[i][0]; //Piso 1
         totalD = 0;
         aux = 7
 
@@ -595,6 +593,8 @@ export function imprimirSalas(mes: any[], diasT1: any[][][], diasT2: any[][][], 
     rango = [{s: { c: 1, r: 5 }, e: { c: 14, r: 5 }}]; 
     piso3['B' + 6] = { t:'s', v: text[0]};
     for (i = 0; i < x; i++) { 
+	    //Variables auxiliares, dias por turno ( Turno x Dia )
+	    let b = cantDiasT2[i][0]; //Piso 3
         totalD = 0;
         aux = 7
 
@@ -694,6 +694,8 @@ export function imprimirSalas(mes: any[], diasT1: any[][][], diasT2: any[][][], 
     rango = [{s: { c: 1, r: 5 }, e: { c: 14, r: 5 }}]; 
     hemeroteca['B' + 6] = { t:'s', v: text[0]};
     for (i = 0; i < x; i++) { 
+	    //Variables auxiliares, dias por turno ( Turno x Dia )
+	    let c = cantDiasT3[i][0]; //Hemeroteca
         totalD = 0;
         aux = 7
 
